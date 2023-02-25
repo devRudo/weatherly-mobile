@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,6 +18,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
+  TouchableHighlight,
+  Linking,
 } from 'react-native';
 
 import {LineChart} from 'react-native-chart-kit';
@@ -25,9 +27,11 @@ import {LineChart} from 'react-native-chart-kit';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Tooltip from 'react-native-walkthrough-tooltip';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const [openTooltip, setOpenTooltip] = useState(false);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -548,15 +552,42 @@ function App(): JSX.Element {
                   marginTop: 8,
                   padding: 15,
                   flexDirection: 'row',
-                  justifyContent: 'center',
+                  justifyContent: 'space-between',
                   alignItems: 'center',
                 }}>
-                <Text>Data provided by</Text>
-                <Image
-                  source={require('./src/assets/img/open_weather_logo.png')}
-                  resizeMode="contain"
-                  style={{width: 60, height: 30, marginLeft: 20}}
-                />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}>
+                  <Text>Data provided by</Text>
+                  <Image
+                    source={require('./src/assets/img/open_weather_logo.png')}
+                    resizeMode="contain"
+                    style={{width: 60, height: 30, marginLeft: 20}}
+                  />
+                </View>
+                <Tooltip
+                  isVisible={openTooltip}
+                  content={
+                    <Text
+                      style={{color: '#000'}}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.freepik.com/free-vector/realistic-clouds-with-falling-rain_18309129.htm#page=6&query=vector%20weather&position=10&from_view=search&track=robertav1',
+                        )
+                      }>
+                      Background Image by starline on Freepik
+                    </Text>
+                  }
+                  placement="top"
+                  onClose={() => setOpenTooltip(false)}>
+                  <TouchableHighlight
+                    onPress={() => setOpenTooltip(true)}
+                    style={{alignSelf: 'flex-start'}}>
+                    <Icon name="information" color={'#d3d3d3'} size={24}></Icon>
+                  </TouchableHighlight>
+                </Tooltip>
               </View>
             </View>
           </ScrollView>
@@ -569,3 +600,6 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({});
 
 export default App;
+{
+  /* <a href="https://www.freepik.com/free-vector/realistic-clouds-with-falling-rain_18309129.htm#page=6&query=vector%20weather&position=10&from_view=search&track=robertav1">Image by starline</a> on Freepik */
+}
