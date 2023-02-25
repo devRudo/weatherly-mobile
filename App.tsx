@@ -564,7 +564,7 @@ function App(): JSX.Element {
                   <Image
                     source={require('./src/assets/img/open_weather_logo.png')}
                     resizeMode="contain"
-                    style={{width: 60, height: 30, marginLeft: 20}}
+                    style={{width: 60, height: 30, marginLeft: 10}}
                   />
                 </View>
                 <Tooltip
