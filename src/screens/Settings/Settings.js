@@ -11,23 +11,48 @@ import {
   Modal,
   Button,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSettings } from '../../redux/features/settings/settingsSlice';
 
 const Settings = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [nightUpdateEnabled, setNightUpdateEnabled] = useState(false);
-  const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true);
-  const [temperatureUnit, setTemperatureUnit] = useState('C');
-  const [windSpeedUnit, setWindSpeedUnit] = useState('km/h');
-  const [pressureUnit, setPressureUnit] = useState('mbar');
+  const dispatch = useDispatch();
+  const {
+    temperatureUnit,
+    windSpeedUnit,
+    pressureUnit,
+    nightUpdates,
+    soundEffects,
+  } = useSelector(state => state.settings);
+  // const [nightUpdateEnabled, setNightUpdateEnabled] = useState(false);
+  // const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true);
+  // const [temperatureUnit, setTemperatureUnit] = useState('C');
+  // const [windSpeedUnit, setWindSpeedUnit] = useState('km/h');
+  // const [pressureUnit, setPressureUnit] = useState('mbar');
 
   const [showFeedbackAction, setShowFeedbackAction] = useState(false);
+  const [rating, setRating] = useState(null);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  const handleChange = (newValue, key) => {
+    dispatch(
+      updateSettings({
+        key,
+        value: newValue,
+      }),
+    );
+  };
+
+  const postFeedback = () => {
+    console.log('rating', rating);
   };
 
   return (
@@ -58,7 +83,9 @@ const Settings = () => {
           <Picker
             style={{ flex: 1 }}
             selectedValue={temperatureUnit}
-            onValueChange={newValue => setTemperatureUnit(newValue)}>
+            onValueChange={newValue =>
+              handleChange(newValue, 'temperatureUnit')
+            }>
             <Picker.Item label="Celsius" value="C" />
             <Picker.Item label="Fahrenheit" value="F" />
           </Picker>
@@ -76,8 +103,8 @@ const Settings = () => {
           <Picker
             style={{ flex: 1 }}
             selectedValue={windSpeedUnit}
-            onValueChange={newValue => setWindSpeedUnit(newValue)}>
-            <Picker.Item label="Beaufort scale" value="bs" />
+            onValueChange={newValue => handleChange(newValue, 'windSpeedUnit')}>
+            {/* <Picker.Item label="Beaufort scale" value="bs" /> */}
             <Picker.Item label="Kilometers per hour (km/h)" value="km/h" />
             <Picker.Item label="Meters per second (m/s)" value="m/s" />
             <Picker.Item label="Miles per hour (mph)" value="mph" />
@@ -97,7 +124,7 @@ const Settings = () => {
           <Picker
             style={{ flex: 1 }}
             selectedValue={pressureUnit}
-            onValueChange={newValue => setPressureUnit(newValue)}>
+            onValueChange={newValue => handleChange(newValue, 'pressureUnit')}>
             <Picker.Item label="Hectopascal (hPa)" value="hpa" />
             <Picker.Item label="Millibar (mbar)" value="mbar" />
             <Picker.Item label="Millimeter of mercury (mmHg)" value="mmhg" />
@@ -105,7 +132,7 @@ const Settings = () => {
             <Picker.Item label="Standard atmosphere (atm)" value="atm" />
           </Picker>
         </View>
-        <View
+        {/* <View
           style={{
             borderBottomColor: '#d3d3d3',
             borderBottomWidth: 1,
@@ -126,10 +153,10 @@ const Settings = () => {
           </Text>
           <Switch
             trackColor={{ false: '#767577', true: '#1f6ff8' }}
-            thumbColor={nightUpdateEnabled ? '#fff' : '#f4f3f4'}
+            thumbColor={nightUpdates ? '#fff' : '#f4f3f4'}
             ios_backgroundColor="#3e3e3e"
-            onValueChange={() => setNightUpdateEnabled(!nightUpdateEnabled)}
-            value={nightUpdateEnabled}
+            onValueChange={newValue => handleChange(newValue, 'nightUpdates')}
+            value={nightUpdates}
           />
         </View>
         <View
@@ -149,12 +176,12 @@ const Settings = () => {
           </View>
           <Switch
             trackColor={{ false: '#767577', true: '#1f6ff8' }}
-            thumbColor={soundEffectsEnabled ? '#fff' : '#f4f3f4'}
+            thumbColor={soundEffects ? '#fff' : '#f4f3f4'}
             ios_backgroundColor="#3e3e3e"
-            onValueChange={() => setSoundEffectsEnabled(!soundEffectsEnabled)}
-            value={soundEffectsEnabled}
+            onValueChange={newValue => handleChange(newValue, 'soundEffects')}
+            value={soundEffects}
           />
-        </View>
+        </View> */}
         <View
           style={{
             borderBottomColor: '#d3d3d3',
@@ -164,31 +191,32 @@ const Settings = () => {
           }}
         />
         <Text>ABOUT WEATHERLY</Text>
-        <TouchableHighlight onPress={() => setShowFeedbackAction(true)}>
+        {/* <TouchableHighlight
+          onPress={() => setShowFeedbackAction(true)}
+          style={{ marginTop: 20 }}>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginTop: 30,
+              paddingVertical: 15,
             }}>
             <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Feedback</Text>
             <Text>></Text>
           </View>
-        </TouchableHighlight>
+        </TouchableHighlight> */}
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginTop: 30,
+            paddingVertical: 15,
+            marginTop: 20,
           }}>
           <View>
-            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>
-              Privacy Policy
-            </Text>
+            <Text style={{ fontSize: 18 }}>Weatherly</Text>
           </View>
-          <Text>></Text>
+          <Text>v1.0</Text>
         </View>
         <Modal
           animationType="fade"
@@ -206,6 +234,8 @@ const Settings = () => {
               width: Dimensions.get('screen').width - 20,
               backgroundColor: isDarkMode ? '#111' : '#f1f1f1',
               borderRadius: 20,
+              borderColor: '#a3a3a3',
+              borderWidth: 1,
               // minHeight: 300,
             }}>
             <View
@@ -222,7 +252,7 @@ const Settings = () => {
                   top: -30,
                   left: Dimensions.get('screen').width / 2 - 40,
                   padding: 15,
-                  backgroundColor: '#111',
+                  backgroundColor: isDarkMode ? '#111' : '#d3d3d3',
                   color: '#fff',
                   fontSize: 30,
                   borderRadius: 30,
@@ -241,22 +271,34 @@ const Settings = () => {
                     width: '100%',
                     marginVertical: 30,
                   }}>
-                  <Icon name="emoticon-sad-outline" size={40} color="#c3c3c3" />
-                  <Icon
-                    name="emoticon-neutral-outline"
-                    size={40}
-                    color="#c3c3c3"
-                  />
-                  <Icon
-                    name="emoticon-happy-outline"
-                    size={40}
-                    color="#c3c3c3"
-                  />
-                  <Icon
-                    name="emoticon-excited-outline"
-                    size={40}
-                    color="#c3c3c3"
-                  />
+                  <TouchableOpacity onPress={() => setRating(1)}>
+                    <Icon
+                      name="emoticon-sad-outline"
+                      size={40}
+                      color={rating === 1 ? '#ffc107' : '#c3c3c3'}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => setRating(2)}>
+                    <Icon
+                      name="emoticon-neutral-outline"
+                      size={40}
+                      color={rating === 2 ? '#ffc107' : '#c3c3c3'}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => setRating(3)}>
+                    <Icon
+                      name="emoticon-happy-outline"
+                      size={40}
+                      color={rating === 3 ? '#ffc107' : '#c3c3c3'}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => setRating(4)}>
+                    <Icon
+                      name="emoticon-excited-outline"
+                      size={40}
+                      color={rating === 4 ? '#ffc107' : '#c3c3c3'}
+                    />
+                  </TouchableOpacity>
                 </View>
                 <Text>How do you feel about Weatherly?</Text>
               </View>
@@ -268,7 +310,10 @@ const Settings = () => {
                 alignItems: 'center',
               }}>
               <TouchableWithoutFeedback
-                onPress={() => setShowFeedbackAction(false)}>
+                onPress={() => {
+                  setShowFeedbackAction(false);
+                  setRating(null);
+                }}>
                 <View
                   style={{
                     justifyContent: 'center',
@@ -282,7 +327,9 @@ const Settings = () => {
                   <Text style={{ fontSize: 16 }}>Later</Text>
                 </View>
               </TouchableWithoutFeedback>
-              <TouchableWithoutFeedback>
+              <TouchableWithoutFeedback
+                disabled={rating === null}
+                onPress={() => postFeedback()}>
                 <View
                   style={{
                     justifyContent: 'center',
@@ -291,7 +338,13 @@ const Settings = () => {
                     paddingVertical: 20,
                     flex: 1,
                   }}>
-                  <Text style={{ fontSize: 16 }}>Rate Now</Text>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: rating === null ? '#d3d3d3' : 'grey',
+                    }}>
+                    Rate Now
+                  </Text>
                 </View>
               </TouchableWithoutFeedback>
             </View>

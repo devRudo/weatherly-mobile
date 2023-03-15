@@ -1,23 +1,30 @@
 import React from 'react';
-import { Text, useColorScheme, View } from 'react-native';
+import { Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { useDispatch } from 'react-redux';
+import { setCurrentLocationId } from '../../redux/features/locations/locationsSlice';
 
 const CityCard = props => {
-  const { city, minTemp, maxTemp, currentTemp, aqi } = props;
+  const { city, minTemp, maxTemp, currentTemp, aqi, id, navigation } = props;
+  const dispatch = useDispatch();
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(setCurrentLocationId({ currentLocationId: id }));
+        navigation.navigate('Home');
+      }}
       style={{
         backgroundColor: isDarkMode ? '#d3d3d3' : '#343a40',
         paddingHorizontal: 20,
         paddingVertical: 15,
         // borderColor: '#fff',
         // borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 2,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -80,7 +87,7 @@ const CityCard = props => {
           o
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

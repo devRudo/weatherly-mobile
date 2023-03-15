@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, useColorScheme } from 'react-native';
-import { Home, Settings, ManageCities } from '../screens';
+import { Home, Settings, ManageCities, AirQualityIndex } from '../screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -44,6 +44,23 @@ export default function Navigator({ navigation }) {
           component={ManageCities}
           options={{
             title: 'Manage Cities',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: backgroundStyle.backgroundColor,
+            },
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              color: isDarkMode ? '#fff' : '#000',
+            },
+            headerTintColor: isDarkMode ? '#fff' : '#000',
+            animation: 'slide_from_left',
+          }}
+        />
+        <RootStack.Screen
+          name="AirQualityIndex"
+          component={AirQualityIndex}
+          options={{
+            title: 'Air Quality Index',
             headerShadowVisible: false,
             headerStyle: {
               backgroundColor: backgroundStyle.backgroundColor,
