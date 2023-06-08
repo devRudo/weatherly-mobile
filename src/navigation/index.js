@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, useColorScheme } from 'react-native';
 import { Home, Settings, ManageCities, AirQualityIndex } from '../screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const RootStack = createNativeStackNavigator();
 

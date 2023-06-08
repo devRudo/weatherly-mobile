@@ -48,7 +48,7 @@ const ManageCities = ({ navigation }) => {
       const locationDetails = {
         data: [
           {
-            id: 'varanasi-uttar-pradesh-in-1',
+            id: 'varanasi-uttar-pradesh-in',
             name: 'Varanasi',
             local_names: {
               ja: 'ワーラーナシー',
@@ -485,6 +485,9 @@ const ManageCities = ({ navigation }) => {
       }),
     );
   };
+
+  console.log(JSON.stringify(locations?.[0]?.id, null, 2));
+  console.log(JSON.stringify(searchData?.[0]?.id, null, 2));
 
   return (
     <SafeAreaView
