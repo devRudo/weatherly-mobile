@@ -71,7 +71,7 @@ const Home = ({ navigation }) => {
     try {
       Geolocation.getCurrentPosition(
         async info => {
-          // console.log(info);
+          // console.log('current position', info);
           try {
             // Set Current location latitude and longitude
             // Get Current location details from latitude and longitude (city, state, country)
@@ -81,440 +81,78 @@ const Home = ({ navigation }) => {
             // Get 24 hour weather forecast for current location
             // Get Air pollution data for current location
 
-            // const locationData = await axios.get('get-rev-geo-loc-details', {
-            //   params: {
-            //     lat: info?.coords?.latitude,
-            //     lon: info?.coords?.longitude,
-            //   },
-            // });
-            // console.log(locationData);
-            // dispatch(addLocation(locationData.data[0]))
-
-            const locationDetail = {
-              id: 'varanasi-uttar-pradesh-in',
-              name: 'Varanasi',
-              local_names: {
-                ur: 'وارانسی',
-                eo: 'Varanasio',
-                pl: 'Waranasi',
-                ta: 'வாரணாசி',
-                ar: 'وارانسي',
-                oc: 'Benarès',
-                hi: 'वाराणसी',
-                kn: 'ವಾರಾಣಸಿ',
-                ml: 'വാരാണസി',
-                ru: 'Варанаси',
-                es: 'Benarés',
-                ja: 'ワーラーナシー',
-                fa: 'وارانسی',
-                tr: 'Benâres',
-                en: 'Varanasi',
-                pa: 'ਵਾਰਾਣਸੀ',
-                he: 'ואראנסי',
-                te: 'వారణాసి',
+            const locationData = await axios.get('get-rev-geo-loc-details', {
+              params: {
+                lat: info?.coords?.latitude,
+                lon: info?.coords?.longitude,
               },
-              lat: 25.3356491,
-              lon: 83.0076292,
-              country: 'IN',
-              state: 'Uttar Pradesh',
+            });
+            // console.log('current location data', JSON.stringify(locationData, null, 2));
+            const locationDetail = {
+              ...locationData?.data?.[0],
+              id: `${locationData?.data?.[0]?.name
+                ?.toLowerCase()
+                ?.split(' ')
+                ?.join('-')}-${locationData?.data?.[0]?.state
+                ?.toLowerCase()
+                ?.split(' ')
+                ?.join('-')}-${locationData?.data?.[0]?.country
+                ?.toLowerCase()
+                ?.split(' ')
+                ?.join('-')}`,
             };
             if (
               locations.find(
                 location => location?.id === locationDetail?.id,
               ) === undefined &&
-              new Date().getTime() - timeOfUpdate > 600000
+              new Date().getTime() - timeOfUpdate > 99999999999
             ) {
               dispatch(setTimeOfUpdate(new Date().getTime()));
               dispatch(addLocation(locationDetail));
               dispatch(
                 setCurrentLocationId({ currentLocationId: locationDetail?.id }),
               );
-              const weatherData = {
-                lat: 25.4113,
-                lon: 82.9907,
-                timezone: 'Asia/Kolkata',
-                timezone_offset: 19800,
-                current: {
-                  dt: 1678888086,
-                  sunrise: 1678840679,
-                  sunset: 1678883785,
-                  temp: 27.03,
-                  feels_like: 27.91,
-                  pressure: 1008,
-                  humidity: 57,
-                  dew_point: 17.79,
-                  uvi: 0,
-                  clouds: 57,
-                  visibility: 3000,
-                  wind_speed: 0.51,
-                  wind_deg: 0,
-                  weather: [
+              try {
+                const weatherData = await axios.get('get-weather-data', {
+                  params: {
+                    lat: info?.coords?.latitude,
+                    lon: info?.coords?.longitude,
+                  },
+                });
+                dispatch(
+                  updateWeatherData({
+                    key: 'weatherData',
+                    weatherData: weatherData?.data,
+                    locationId: locationDetail?.id,
+                  }),
+                );
+                try {
+                  const airPollutionData = await axios.get(
+                    'get-air-pollution-data',
                     {
-                      id: 721,
-                      main: 'Haze',
-                      description: 'haze',
-                      icon: '50n',
-                    },
-                  ],
-                },
-                daily: [
-                  {
-                    dt: 1678861800,
-                    sunrise: 1678840679,
-                    sunset: 1678883785,
-                    moonrise: 1678821120,
-                    moonset: 1678858980,
-                    moon_phase: 0.75,
-                    temp: {
-                      day: 35.36,
-                      min: 20.21,
-                      max: 36.87,
-                      night: 24.97,
-                      eve: 29.69,
-                      morn: 20.33,
-                    },
-                    feels_like: {
-                      day: 32.79,
-                      night: 24.2,
-                      eve: 29.23,
-                      morn: 19.2,
-                    },
-                    pressure: 1010,
-                    humidity: 13,
-                    dew_point: 3.41,
-                    wind_speed: 4.5,
-                    wind_deg: 301,
-                    wind_gust: 6.26,
-                    weather: [
-                      {
-                        id: 800,
-                        main: 'Clear',
-                        description: 'clear sky',
-                        icon: '01d',
+                      params: {
+                        lat: info?.coords?.latitude,
+                        lon: info?.coords?.longitude,
                       },
-                    ],
-                    clouds: 7,
-                    pop: 0,
-                    uvi: 9.2,
-                  },
-                  {
-                    dt: 1678948200,
-                    sunrise: 1678927017,
-                    sunset: 1678970212,
-                    moonrise: 1678911360,
-                    moonset: 1678949040,
-                    moon_phase: 0.79,
-                    temp: {
-                      day: 35.76,
-                      min: 23.13,
-                      max: 37.84,
-                      night: 25.96,
-                      eve: 34.49,
-                      morn: 23.13,
                     },
-                    feels_like: {
-                      day: 32.98,
-                      night: 25.96,
-                      eve: 31.97,
-                      morn: 22.02,
-                    },
-                    pressure: 1010,
-                    humidity: 9,
-                    dew_point: -1.65,
-                    wind_speed: 6.17,
-                    wind_deg: 262,
-                    wind_gust: 12.49,
-                    weather: [
-                      {
-                        id: 804,
-                        main: 'Clouds',
-                        description: 'overcast clouds',
-                        icon: '04d',
-                      },
-                    ],
-                    clouds: 100,
-                    pop: 0,
-                    uvi: 7.29,
-                  },
-                  {
-                    dt: 1679034600,
-                    sunrise: 1679013354,
-                    sunset: 1679056640,
-                    moonrise: 1679001360,
-                    moonset: 1679039520,
-                    moon_phase: 0.83,
-                    temp: {
-                      day: 32.25,
-                      min: 21.59,
-                      max: 34.43,
-                      night: 21.59,
-                      eve: 25.29,
-                      morn: 24.47,
-                    },
-                    feels_like: {
-                      day: 30.58,
-                      night: 21.53,
-                      eve: 25.18,
-                      morn: 23.94,
-                    },
-                    pressure: 1011,
-                    humidity: 25,
-                    dew_point: 10.04,
-                    wind_speed: 4.26,
-                    wind_deg: 280,
-                    wind_gust: 6.42,
-                    weather: [
-                      {
-                        id: 500,
-                        main: 'Rain',
-                        description: 'light rain',
-                        icon: '10d',
-                      },
-                    ],
-                    clouds: 96,
-                    pop: 0.88,
-                    rain: 1.75,
-                    uvi: 6.75,
-                  },
-                  {
-                    dt: 1679121000,
-                    sunrise: 1679099691,
-                    sunset: 1679143067,
-                    moonrise: 1679091060,
-                    moonset: 1679130060,
-                    moon_phase: 0.87,
-                    temp: {
-                      day: 31.58,
-                      min: 18.58,
-                      max: 34.44,
-                      night: 23.58,
-                      eve: 32.99,
-                      morn: 18.58,
-                    },
-                    feels_like: {
-                      day: 30.35,
-                      night: 23.04,
-                      eve: 30.93,
-                      morn: 18.56,
-                    },
-                    pressure: 1010,
-                    humidity: 30,
-                    dew_point: 12.27,
-                    wind_speed: 3.22,
-                    wind_deg: 176,
-                    wind_gust: 5.75,
-                    weather: [
-                      {
-                        id: 500,
-                        main: 'Rain',
-                        description: 'light rain',
-                        icon: '10d',
-                      },
-                    ],
-                    clouds: 40,
-                    pop: 0.42,
-                    rain: 0.53,
-                    uvi: 9.02,
-                  },
-                  {
-                    dt: 1679207400,
-                    sunrise: 1679186027,
-                    sunset: 1679229493,
-                    moonrise: 1679180280,
-                    moonset: 1679220660,
-                    moon_phase: 0.91,
-                    temp: {
-                      day: 31.25,
-                      min: 20.24,
-                      max: 32.59,
-                      night: 21.89,
-                      eve: 30.87,
-                      morn: 20.24,
-                    },
-                    feels_like: {
-                      day: 29.81,
-                      night: 21.65,
-                      eve: 29.36,
-                      morn: 19.89,
-                    },
-                    pressure: 1010,
-                    humidity: 28,
-                    dew_point: 10.8,
-                    wind_speed: 3.84,
-                    wind_deg: 97,
-                    wind_gust: 5.53,
-                    weather: [
-                      {
-                        id: 500,
-                        main: 'Rain',
-                        description: 'light rain',
-                        icon: '10d',
-                      },
-                    ],
-                    clouds: 100,
-                    pop: 0.57,
-                    rain: 0.48,
-                    uvi: 5.55,
-                  },
-                  {
-                    dt: 1679293800,
-                    sunrise: 1679272364,
-                    sunset: 1679315920,
-                    moonrise: 1679269260,
-                    moonset: 1679311020,
-                    moon_phase: 0.94,
-                    temp: {
-                      day: 30.65,
-                      min: 20.05,
-                      max: 33.31,
-                      night: 22.17,
-                      eve: 29.28,
-                      morn: 20.05,
-                    },
-                    feels_like: {
-                      day: 29.56,
-                      night: 22.04,
-                      eve: 28.31,
-                      morn: 19.91,
-                    },
-                    pressure: 1009,
-                    humidity: 32,
-                    dew_point: 12.02,
-                    wind_speed: 4.56,
-                    wind_deg: 249,
-                    wind_gust: 6.22,
-                    weather: [
-                      {
-                        id: 500,
-                        main: 'Rain',
-                        description: 'light rain',
-                        icon: '10d',
-                      },
-                    ],
-                    clouds: 98,
-                    pop: 0.74,
-                    rain: 2.51,
-                    uvi: 6,
-                  },
-                  {
-                    dt: 1679380200,
-                    sunrise: 1679358700,
-                    sunset: 1679402346,
-                    moonrise: 1679358000,
-                    moonset: 1679401320,
-                    moon_phase: 0,
-                    temp: {
-                      day: 28.67,
-                      min: 19.46,
-                      max: 32.18,
-                      night: 19.46,
-                      eve: 30.87,
-                      morn: 19.56,
-                    },
-                    feels_like: {
-                      day: 28.28,
-                      night: 19.6,
-                      eve: 29.51,
-                      morn: 19.58,
-                    },
-                    pressure: 1009,
-                    humidity: 40,
-                    dew_point: 13.93,
-                    wind_speed: 5.01,
-                    wind_deg: 327,
-                    wind_gust: 9.67,
-                    weather: [
-                      {
-                        id: 500,
-                        main: 'Rain',
-                        description: 'light rain',
-                        icon: '10d',
-                      },
-                    ],
-                    clouds: 91,
-                    pop: 1,
-                    rain: 5.32,
-                    uvi: 6,
-                  },
-                  {
-                    dt: 1679466600,
-                    sunrise: 1679445036,
-                    sunset: 1679488773,
-                    moonrise: 1679446500,
-                    moonset: 1679491500,
-                    moon_phase: 0.02,
-                    temp: {
-                      day: 29.65,
-                      min: 18.98,
-                      max: 32.65,
-                      night: 23.97,
-                      eve: 30.88,
-                      morn: 18.98,
-                    },
-                    feels_like: {
-                      day: 29,
-                      night: 23.49,
-                      eve: 29.29,
-                      morn: 19.15,
-                    },
-                    pressure: 1010,
-                    humidity: 37,
-                    dew_point: 13.53,
-                    wind_speed: 4.2,
-                    wind_deg: 331,
-                    wind_gust: 5.47,
-                    weather: [
-                      {
-                        id: 802,
-                        main: 'Clouds',
-                        description: 'scattered clouds',
-                        icon: '03d',
-                      },
-                    ],
-                    clouds: 33,
-                    pop: 0.12,
-                    uvi: 6,
-                  },
-                ],
-              };
-              dispatch(
-                updateWeatherData({
-                  key: 'weatherData',
-                  weatherData: weatherData,
-                  locationId: locationDetail?.id,
-                }),
-              );
-              const airPollutionData = {
-                coord: [50, 50],
-                list: [
-                  {
-                    dt: 1605182400,
-                    main: {
-                      aqi: 1,
-                    },
-                    components: {
-                      co: 201.94053649902344,
-                      no: 0.01877197064459324,
-                      no2: 0.7711350917816162,
-                      o3: 68.66455078125,
-                      so2: 0.6407499313354492,
-                      pm2_5: 0.5,
-                      pm10: 0.540438711643219,
-                      nh3: 0.12369127571582794,
-                    },
-                  },
-                ],
-              };
-              dispatch(
-                updateWeatherData({
-                  key: 'airPollution',
-                  weatherData: airPollutionData,
-                  locationId: locationDetail?.id,
-                }),
-              );
+                  );
+
+                  dispatch(
+                    updateWeatherData({
+                      key: 'airPollution',
+                      weatherData: airPollutionData?.data,
+                      locationId: locationDetail?.id,
+                    }),
+                  );
+                } catch (e) {
+                  console.log('getAirPollutionDataForCurrentLocationError', e);
+                }
+              } catch (e) {
+                console.log('getWeatherForCurrentLocationError', e);
+              }
             }
           } catch (e) {
-            console.log(e);
+            console.log('getLocationDetailError', e);
           }
         },
         () => {},
@@ -523,7 +161,7 @@ const Home = ({ navigation }) => {
         },
       );
     } catch (e) {
-      console.log(e);
+      console.log('getCurrentLatLongError', e);
     }
     getUniqueId()
       .then(uId => {
@@ -539,9 +177,9 @@ const Home = ({ navigation }) => {
     return () => {};
   }, []);
 
-  // console.log(locations);
+  console.log('locations', JSON.stringify(locations, null, 2));
   // console.log(isDarkMode);
-  // console.log('currentLocation', currentLocation);
+  console.log('currentLocation', JSON.stringify(currentLocation, null, 2));
 
   return (
     <ImageBackground
