@@ -13,6 +13,7 @@ import {
   Image,
   TouchableHighlight,
   Linking,
+  Platform,
 } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -32,6 +33,7 @@ import { updateSettings } from '../../redux/features/settings/settingsSlice';
 import moment from 'moment';
 import { convertTemp } from '../../utils';
 import { HomePlaceholder } from '../../components';
+import DeviceInfo from 'react-native-device-info';
 
 const Home = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -52,6 +54,7 @@ const Home = ({ navigation }) => {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    color: '#fff',
   };
 
   useEffect(() => {
@@ -187,6 +190,7 @@ const Home = ({ navigation }) => {
   // console.log('locations', JSON.stringify(locations, null, 2));
   // // console.log(isDarkMode);
   // console.log('currentLocation', JSON.stringify(currentLocation, null, 2));
+  // console.log(Platform.OS, DeviceInfo?.hasNotch());
 
   return (
     <ImageBackground
@@ -211,30 +215,30 @@ const Home = ({ navigation }) => {
                 alignItems: 'center',
                 padding: 10,
                 position: 'absolute',
-                top: 0,
+                top: DeviceInfo?.hasNotch() ? 36 : 0,
                 left: 0,
                 width: '100%',
-                backgroundColor: backgroundStyle.backgroundColor,
+                // backgroundColor: 'rgba(0,0,0,0.7)',
                 zIndex: 1,
               }}>
               <Icon
                 name="plus"
                 size={34}
-                color={isDarkMode ? '#fff' : '#000'}
+                color={'#f1f1f1'}
                 onPress={() => navigation.navigate('ManageCities')}
               />
               <Text
                 style={{
                   fontSize: 20,
                   fontWeight: 'bold',
-                  color: isDarkMode ? '#fff' : '#000',
+                  color: '#f1f1f1',
                 }}>
                 {currentLocation?.name}
               </Text>
               <Icon
                 name="cog-outline"
                 size={34}
-                color={isDarkMode ? '#fff' : '#000'}
+                color={'#f1f1f1'}
                 onPress={() => navigation.navigate('Settings')}
               />
             </View>
@@ -405,8 +409,16 @@ const Home = ({ navigation }) => {
                         flex: 1,
                       }}>
                       <View>
-                        <Text>North</Text>
-                        <Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
+                          North
+                        </Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
                           {windSpeedUnit === 'km/h'
                             ? (
                                 currentLocation?.weatherData?.daily?.[0]
@@ -443,7 +455,13 @@ const Home = ({ navigation }) => {
                           padding: 5,
                           position: 'relative',
                         }}>
-                        <Text style={{ alignSelf: 'center' }}>N</Text>
+                        <Text
+                          style={{
+                            alignSelf: 'center',
+                            color: backgroundStyle.color,
+                          }}>
+                          N
+                        </Text>
                         <Text
                           style={{ alignSelf: 'center', height: 10 }}></Text>
                         <View
@@ -451,12 +469,32 @@ const Home = ({ navigation }) => {
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                           }}>
-                          <Text>W</Text>
-                          <Text>E</Text>
+                          <Text
+                            style={{
+                              color: backgroundStyle.color,
+                            }}>
+                            W
+                          </Text>
+                          <Text
+                            style={{
+                              color: backgroundStyle.color,
+                            }}>
+                            E
+                          </Text>
                         </View>
                         <Text
-                          style={{ alignSelf: 'center', height: 10 }}></Text>
-                        <Text style={{ alignSelf: 'center' }}>S</Text>
+                          style={{
+                            alignSelf: 'center',
+                            height: 10,
+                            color: backgroundStyle.color,
+                          }}></Text>
+                        <Text
+                          style={{
+                            alignSelf: 'center',
+                            color: backgroundStyle.color,
+                          }}>
+                          S
+                        </Text>
                         <View
                           style={{
                             width: 80,
@@ -496,13 +534,19 @@ const Home = ({ navigation }) => {
                         flex: 1,
                       }}>
                       <View>
-                        <Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
                           {moment(
                             currentLocation?.weatherData?.daily?.[0]?.sunrise *
                               1000,
                           ).format('hh:mm A')}
                         </Text>
-                        <Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
                           {moment(
                             currentLocation?.weatherData?.daily?.[0]?.sunset *
                               1000,
@@ -510,8 +554,18 @@ const Home = ({ navigation }) => {
                         </Text>
                       </View>
                       <View>
-                        <Text>Sunrise</Text>
-                        <Text>Sunset</Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
+                          Sunrise
+                        </Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
+                          Sunset
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -526,10 +580,30 @@ const Home = ({ navigation }) => {
                       flex: 1,
                     }}>
                     <View style={{ justifyContent: 'space-between' }}>
-                      <Text>Humidity</Text>
-                      <Text>Real Feel</Text>
-                      <Text>Clouds</Text>
-                      <Text>Pressure</Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
+                        Humidity
+                      </Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
+                        Real Feel
+                      </Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
+                        Clouds
+                      </Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
+                        Pressure
+                      </Text>
                       {/* <Text>Chance of rain</Text> */}
                     </View>
                     <View
@@ -537,11 +611,17 @@ const Home = ({ navigation }) => {
                         justifyContent: 'space-between',
                         alignItems: 'flex-end',
                       }}>
-                      <Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
                         {currentLocation?.weatherData?.current?.humidity}%
                       </Text>
                       <View style={{ flexDirection: 'row' }}>
-                        <Text>
+                        <Text
+                          style={{
+                            color: backgroundStyle.color,
+                          }}>
                           {temperatureUnit === 'C'
                             ? currentLocation?.weatherData?.current?.feels_like.toFixed(
                                 0,
@@ -556,14 +636,21 @@ const Home = ({ navigation }) => {
                         <Text
                           style={{
                             lineHeight: 12,
+                            color: backgroundStyle.color,
                           }}>
                           o
                         </Text>
                       </View>
-                      <Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
                         {currentLocation?.weatherData?.current?.clouds}%
                       </Text>
-                      <Text>
+                      <Text
+                        style={{
+                          color: backgroundStyle.color,
+                        }}>
                         {pressureUnit === 'mbar' || pressureUnit === 'hpa'
                           ? currentLocation?.weatherData?.current?.pressure
                           : pressureUnit === 'mmhg'
@@ -659,9 +746,11 @@ const Home = ({ navigation }) => {
                   <View
                     style={{
                       flexDirection: 'row',
-                      alignItems: 'center',
+                      alignItems: 'flex-end',
                     }}>
-                    <Text>Data provided by</Text>
+                    <Text style={{ color: '#fff', fontSize: 10 }}>
+                      Data provided by
+                    </Text>
                     <Image
                       source={require('../../assets/img/open_weather_logo.png')}
                       resizeMode="contain"

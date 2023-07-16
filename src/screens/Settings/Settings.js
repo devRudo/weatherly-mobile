@@ -18,6 +18,7 @@ import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSettings } from '../../redux/features/settings/settingsSlice';
+import { CommonPicker } from '../../components';
 
 const Settings = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -40,6 +41,7 @@ const Settings = () => {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    color: isDarkMode ? '#fff' : '#000',
   };
 
   const handleChange = (newValue, key) => {
@@ -69,26 +71,44 @@ const Settings = () => {
         style={{
           padding: 20,
         }}>
-        <Text>UNITS</Text>
+        <Text
+          style={{
+            color: backgroundStyle.color,
+          }}>
+          UNITS
+        </Text>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
             marginTop: 30,
+            gap: 20,
           }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 18, flex: 2 }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 16,
+              flex: 2,
+              color: backgroundStyle.color,
+            }}>
             Temperature Units
           </Text>
-          <Picker
-            style={{ flex: 1 }}
-            selectedValue={temperatureUnit}
-            onValueChange={newValue =>
-              handleChange(newValue, 'temperatureUnit')
-            }>
-            <Picker.Item label="Celsius" value="C" />
-            <Picker.Item label="Fahrenheit" value="F" />
-          </Picker>
+          <CommonPicker
+            items={[
+              {
+                label: 'Celsius',
+                value: 'C',
+              },
+              {
+                label: 'Fahrenheit',
+                value: 'F',
+              },
+            ]}
+            value={temperatureUnit}
+            handleChange={handleChange}
+            type={'temperatureUnit'}
+          />
         </View>
         <View
           style={{
@@ -96,20 +116,40 @@ const Settings = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             marginTop: 20,
+            gap: 20,
           }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 18, flex: 1 }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 16,
+              flex: 1,
+              color: backgroundStyle.color,
+            }}>
             Wind speed units
           </Text>
-          <Picker
-            style={{ flex: 1 }}
-            selectedValue={windSpeedUnit}
-            onValueChange={newValue => handleChange(newValue, 'windSpeedUnit')}>
-            {/* <Picker.Item label="Beaufort scale" value="bs" /> */}
-            <Picker.Item label="Kilometers per hour (km/h)" value="km/h" />
-            <Picker.Item label="Meters per second (m/s)" value="m/s" />
-            <Picker.Item label="Miles per hour (mph)" value="mph" />
-            <Picker.Item label="Knot (kn)" value="kn" />
-          </Picker>
+          <CommonPicker
+            items={[
+              {
+                label: 'Kilometers per hour (km/h)',
+                value: 'km/h',
+              },
+              {
+                label: 'Meters per second (m/s)',
+                value: 'm/s',
+              },
+              {
+                label: 'Miles per hour (mph)',
+                value: 'mph',
+              },
+              {
+                label: 'Knot (kn)',
+                value: 'kn',
+              },
+            ]}
+            value={windSpeedUnit}
+            handleChange={handleChange}
+            type={'windSpeedUnit'}
+          />
         </View>
         <View
           style={{
@@ -117,20 +157,44 @@ const Settings = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             marginTop: 20,
+            gap: 20,
           }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 18, flex: 2 }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 16,
+              flex: 2,
+              color: backgroundStyle.color,
+            }}>
             Atmospheric pressure units
           </Text>
-          <Picker
-            style={{ flex: 1 }}
-            selectedValue={pressureUnit}
-            onValueChange={newValue => handleChange(newValue, 'pressureUnit')}>
-            <Picker.Item label="Hectopascal (hPa)" value="hpa" />
-            <Picker.Item label="Millibar (mbar)" value="mbar" />
-            <Picker.Item label="Millimeter of mercury (mmHg)" value="mmhg" />
-            <Picker.Item label="Inch of mercury (inHg)" value="inhg" />
-            <Picker.Item label="Standard atmosphere (atm)" value="atm" />
-          </Picker>
+          <CommonPicker
+            items={[
+              {
+                label: 'Hectopascal (hPa)',
+                value: 'hpa',
+              },
+              {
+                label: 'Millibar (mbar)',
+                value: 'mbar',
+              },
+              {
+                label: 'Millimeter of mercury (mmHg)',
+                value: 'mmhg',
+              },
+              {
+                label: 'Inch of mercury (inHg)',
+                value: 'inhg',
+              },
+              {
+                label: 'Standard atmosphere (atm)',
+                value: 'atm',
+              },
+            ]}
+            value={pressureUnit}
+            handleChange={handleChange}
+            type={'pressureUnit'}
+          />
         </View>
         {/* <View
           style={{
@@ -190,7 +254,12 @@ const Settings = () => {
             marginBottom: 40,
           }}
         />
-        <Text>ABOUT WEATHERLY</Text>
+        <Text
+          style={{
+            color: backgroundStyle.color,
+          }}>
+          ABOUT WEATHERLY
+        </Text>
         {/* <TouchableHighlight
           onPress={() => setShowFeedbackAction(true)}
           style={{ marginTop: 20 }}>
@@ -214,9 +283,16 @@ const Settings = () => {
             marginTop: 20,
           }}>
           <View>
-            <Text style={{ fontSize: 18 }}>Weatherly</Text>
+            <Text style={{ fontSize: 18, color: backgroundStyle.color }}>
+              Weatherly
+            </Text>
           </View>
-          <Text>v1.0</Text>
+          <Text
+            style={{
+              color: backgroundStyle.color,
+            }}>
+            v1.0
+          </Text>
         </View>
         <Modal
           animationType="fade"
