@@ -119,6 +119,10 @@ const Home = ({ navigation }) => {
                     lon: info?.coords?.longitude,
                   },
                 });
+                console.log(
+                  'weatherData',
+                  JSON.stringify(weatherData?.data, null, 2),
+                );
                 dispatch(
                   updateWeatherData({
                     key: 'weatherData',
@@ -136,7 +140,10 @@ const Home = ({ navigation }) => {
                       },
                     },
                   );
-
+                  console.log(
+                    'air pollution data',
+                    JSON.stringify(airPollutionData?.data, null, 2),
+                  );
                   dispatch(
                     updateWeatherData({
                       key: 'airPollution',
@@ -177,9 +184,9 @@ const Home = ({ navigation }) => {
     return () => {};
   }, []);
 
-  console.log('locations', JSON.stringify(locations, null, 2));
-  // console.log(isDarkMode);
-  console.log('currentLocation', JSON.stringify(currentLocation, null, 2));
+  // console.log('locations', JSON.stringify(locations, null, 2));
+  // // console.log(isDarkMode);
+  // console.log('currentLocation', JSON.stringify(currentLocation, null, 2));
 
   return (
     <ImageBackground
@@ -523,7 +530,7 @@ const Home = ({ navigation }) => {
                       <Text>Real Feel</Text>
                       <Text>Clouds</Text>
                       <Text>Pressure</Text>
-                      <Text>Chance of rain</Text>
+                      {/* <Text>Chance of rain</Text> */}
                     </View>
                     <View
                       style={{
@@ -578,9 +585,9 @@ const Home = ({ navigation }) => {
                               ?.pressure}{' '}
                         {pressureUnit}
                       </Text>
-                      <Text>
+                      {/* <Text>
                         {currentLocation?.weatherData?.current?.rain || 0}%
-                      </Text>
+                      </Text> */}
                     </View>
                   </View>
                 </View>
