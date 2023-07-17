@@ -122,10 +122,10 @@ const Home = ({ navigation }) => {
                     lon: info?.coords?.longitude,
                   },
                 });
-                console.log(
-                  'weatherData',
-                  JSON.stringify(weatherData?.data, null, 2),
-                );
+                // console.log(
+                //   'weatherData',
+                //   JSON.stringify(weatherData?.data, null, 2),
+                // );
                 dispatch(
                   updateWeatherData({
                     key: 'weatherData',
@@ -143,10 +143,10 @@ const Home = ({ navigation }) => {
                       },
                     },
                   );
-                  console.log(
-                    'air pollution data',
-                    JSON.stringify(airPollutionData?.data, null, 2),
-                  );
+                  // console.log(
+                  //   'air pollution data',
+                  //   JSON.stringify(airPollutionData?.data, null, 2),
+                  // );
                   dispatch(
                     updateWeatherData({
                       key: 'airPollution',

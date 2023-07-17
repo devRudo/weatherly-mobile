@@ -37,7 +37,7 @@ const AirQualityIndex = () => {
     }
   }, [locations, currentLocationId]);
 
-  console.log(JSON.stringify(currentLocation?.airPollution?.list, null, 2));
+  // console.log(JSON.stringify(currentLocation?.airPollution?.list, null, 2));
 
   return (
     <SafeAreaView
