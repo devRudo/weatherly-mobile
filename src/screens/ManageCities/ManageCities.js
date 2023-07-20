@@ -18,7 +18,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from '../../utils/axios';
 import {
   addLocation,
-  setCurrentLocationId,
   setTimeOfUpdate,
   updateWeatherData,
 } from '../../redux/features/locations/locationsSlice';

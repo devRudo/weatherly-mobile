@@ -4,6 +4,7 @@ const initialState = {
   timeOfUpdate: 0,
   locations: [],
   currentLocationId: '',
+  activeLocationIndex: 0,
   isLoading: false,
 };
 
@@ -17,6 +18,9 @@ export const locationsSlice = createSlice({
     removeLocation: state => {},
     setCurrentLocationId: (state, action) => {
       state.currentLocationId = action.payload.currentLocationId;
+    },
+    setActiveLocationIndex: (state, action) => {
+      state.activeLocationIndex = action.payload.activeLocationIndex;
     },
     setTimeOfUpdate: (state, action) => {
       state.timeOfUpdate = action.payload;
@@ -45,6 +49,7 @@ export const {
   addLocation,
   removeLocation,
   setCurrentLocationId,
+  setActiveLocationIndex,
   updateWeatherData,
   setTimeOfUpdate,
 } = locationsSlice.actions;

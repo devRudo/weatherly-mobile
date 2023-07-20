@@ -32,7 +32,7 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 
-const Home = () => {
+const HomePlaceholder = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [openTooltip, setOpenTooltip] = useState(false);
   const {
@@ -279,4 +279,4 @@ const Home = () => {
 
 const styles = StyleSheet.create({});
 
-export default Home;
+export default HomePlaceholder;

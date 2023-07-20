@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { useDispatch } from 'react-redux';
-import { setCurrentLocationId } from '../../redux/features/locations/locationsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveLocationIndex } from '../../redux/features/locations/locationsSlice';
 
 const CityCard = props => {
   const { city, minTemp, maxTemp, currentTemp, aqi, id, navigation } = props;
@@ -11,11 +11,22 @@ const CityCard = props => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const { locations, activeLocationIndex } = useSelector(
+    state => state.locations,
+  );
+
+  console.log(id);
 
   return (
     <TouchableOpacity
       onPress={() => {
-        dispatch(setCurrentLocationId({ currentLocationId: id }));
+        dispatch(
+          setActiveLocationIndex({
+            activeLocationIndex: locations.findIndex(
+              location => location?.id === id,
+            ),
+          }),
+        );
         navigation.navigate('Home');
       }}
       style={{
