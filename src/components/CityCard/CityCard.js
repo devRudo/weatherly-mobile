@@ -15,8 +15,6 @@ const CityCard = props => {
     state => state.locations,
   );
 
-  console.log(id);
-
   return (
     <TouchableOpacity
       onPress={() => {

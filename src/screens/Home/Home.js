@@ -25,6 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUniqueId } from 'react-native-device-info';
 import {
   addLocation,
+  setActiveLocationIndex,
   setCurrentLocationId,
   setTimeOfUpdate,
   updateWeatherData,
@@ -81,10 +82,10 @@ const Home = ({ navigation }) => {
 
   useEffect(() => {
     try {
-      console.log('coming');
+      // console.log('coming');
       Geolocation.getCurrentPosition(
         async info => {
-          console.log('current position', info);
+          // console.log('current position', info);
           try {
             // Set Current location latitude and longitude
             // Get Current location details from latitude and longitude (city, state, country)
@@ -203,7 +204,7 @@ const Home = ({ navigation }) => {
   // console.log('currentLocation', JSON.stringify(currentLocation, null, 2));
   // console.log(Platform.OS, DeviceInfo?.hasNotch());
   // console.log(currentLocationIndex);
-  console.log('activeLocationIndex', activeLocationIndex);
+  // console.log('activeLocationIndex', activeLocationIndex);
 
   return (
     <Swiper
@@ -212,6 +213,7 @@ const Home = ({ navigation }) => {
       index={currentLocationIndex}
       // ref={swiperRef}
       onMomentumScrollEnd={(e, state) => {
+        dispatch(setActiveLocationIndex({ activeLocationIndex: state.index }));
         setCurrenLocationIndex(state.index);
       }}
       showsPagination={false}
@@ -332,13 +334,13 @@ const Home = ({ navigation }) => {
                             color: '#d3d3d3',
                           }}>
                           {temperatureUnit === 'C'
-                            ? currentLocation?.weatherData?.current?.temp?.toFixed(
-                                0,
-                              )
+                            ? locations?.[
+                                currentLocationIndex
+                              ]?.weatherData?.current?.temp?.toFixed(0)
                             : (
-                                (currentLocation?.weatherData?.current?.temp?.toFixed(
-                                  0,
-                                ) *
+                                (locations?.[
+                                  currentLocationIndex
+                                ]?.weatherData?.current?.temp?.toFixed(0) *
                                   9) /
                                   5 +
                                 32
@@ -366,16 +368,16 @@ const Home = ({ navigation }) => {
                       </View>
                       <View style={{ flexDirection: 'row' }}>
                         <Text style={{ fontSize: 24, color: '#d3d3d3' }}>{`${
-                          currentLocation?.weatherData?.current?.weather?.[0]
-                            ?.main || ''
+                          locations?.[currentLocationIndex]?.weatherData
+                            ?.current?.weather?.[0]?.main || ''
                         } ${
                           temperatureUnit === 'C'
-                            ? currentLocation?.weatherData?.daily?.[0]?.temp?.max?.toFixed(
-                                0,
-                              )
+                            ? locations?.[
+                                currentLocationIndex
+                              ]?.weatherData?.daily?.[0]?.temp?.max?.toFixed(0)
                             : convertTemp(
-                                currentLocation?.weatherData?.daily?.[0]?.temp
-                                  ?.max,
+                                locations?.[currentLocationIndex]?.weatherData
+                                  ?.daily?.[0]?.temp?.max,
                                 'C',
                                 'F',
                               )
@@ -404,12 +406,12 @@ const Home = ({ navigation }) => {
                             marginLeft: 5,
                           }}>
                           {temperatureUnit === 'C'
-                            ? currentLocation?.weatherData?.daily?.[0]?.temp?.min?.toFixed(
-                                0,
-                              )
+                            ? locations?.[
+                                currentLocationIndex
+                              ]?.weatherData?.daily?.[0]?.temp?.min?.toFixed(0)
                             : convertTemp(
-                                currentLocation?.weatherData?.daily?.[0]?.temp
-                                  ?.min,
+                                locations?.[currentLocationIndex]?.weatherData
+                                  ?.daily?.[0]?.temp?.min,
                                 'C',
                                 'F',
                               )}
@@ -442,20 +444,20 @@ const Home = ({ navigation }) => {
                           color="#d3d3d3"></Icon>
                         <Text style={{ color: '#d3d3d3', marginLeft: 10 }}>
                           AQI{' '}
-                          {currentLocation?.airPollution?.list?.[0]?.main
-                            ?.aqi === 1
+                          {locations?.[currentLocationIndex]?.airPollution
+                            ?.list?.[0]?.main?.aqi === 1
                             ? 'Good'
-                            : currentLocation?.airPollution?.list?.[0]?.main
-                                ?.aqi === 2
+                            : locations?.[currentLocationIndex]?.airPollution
+                                ?.list?.[0]?.main?.aqi === 2
                             ? 'Fair'
-                            : currentLocation?.airPollution?.list?.[0]?.main
-                                ?.aqi === 3
+                            : locations?.[currentLocationIndex]?.airPollution
+                                ?.list?.[0]?.main?.aqi === 3
                             ? 'Moderate'
-                            : currentLocation?.airPollution?.list?.[0]?.main
-                                ?.aqi === 4
+                            : locations?.[currentLocationIndex]?.airPollution
+                                ?.list?.[0]?.main?.aqi === 4
                             ? 'Poor'
-                            : currentLocation?.airPollution?.list?.[0]?.main
-                                ?.aqi === 5
+                            : locations?.[currentLocationIndex]?.airPollution
+                                ?.list?.[0]?.main?.aqi === 5
                             ? 'Very Poor'
                             : ''}
                         </Text>
@@ -503,24 +505,31 @@ const Home = ({ navigation }) => {
                                 }}>
                                 {windSpeedUnit === 'km/h'
                                   ? (
-                                      currentLocation?.weatherData?.daily?.[0]
-                                        ?.wind_speed * 3.6
+                                      locations?.[currentLocationIndex]
+                                        ?.weatherData?.daily?.[0]?.wind_speed *
+                                      3.6
                                     ).toFixed(2)
                                   : windSpeedUnit === 'm/s'
-                                  ? currentLocation?.weatherData?.daily?.[0]?.wind_speed.toFixed(
+                                  ? locations?.[
+                                      currentLocationIndex
+                                    ]?.weatherData?.daily?.[0]?.wind_speed.toFixed(
                                       2,
                                     )
                                   : windSpeedUnit === 'mph'
                                   ? (
-                                      currentLocation?.weatherData?.daily?.[0]
-                                        ?.wind_speed * 2.2369
+                                      locations?.[currentLocationIndex]
+                                        ?.weatherData?.daily?.[0]?.wind_speed *
+                                      2.2369
                                     ).toFixed(2)
                                   : windSpeedUnit === 'kn'
                                   ? (
-                                      currentLocation?.weatherData?.daily?.[0]
-                                        ?.wind_speed * 1.943844
+                                      locations?.[currentLocationIndex]
+                                        ?.weatherData?.daily?.[0]?.wind_speed *
+                                      1.943844
                                     ).toFixed(2)
-                                  : currentLocation?.weatherData?.daily?.[0]?.wind_speed.toFixed(
+                                  : locations?.[
+                                      currentLocationIndex
+                                    ]?.weatherData?.daily?.[0]?.wind_speed.toFixed(
                                       2,
                                     )}{' '}
                                 {windSpeedUnit}
@@ -599,8 +608,8 @@ const Home = ({ navigation }) => {
                                       {
                                         rotate: `${
                                           -45 +
-                                          currentLocation?.weatherData?.current
-                                            ?.wind_deg
+                                          locations?.[currentLocationIndex]
+                                            ?.weatherData?.current?.wind_deg
                                         }deg`,
                                       },
                                     ],
@@ -624,8 +633,8 @@ const Home = ({ navigation }) => {
                                   color: backgroundStyle.color,
                                 }}>
                                 {moment(
-                                  currentLocation?.weatherData?.daily?.[0]
-                                    ?.sunrise * 1000,
+                                  locations?.[currentLocationIndex]?.weatherData
+                                    ?.daily?.[0]?.sunrise * 1000,
                                 ).format('hh:mm A')}
                               </Text>
                               <Text
@@ -633,8 +642,8 @@ const Home = ({ navigation }) => {
                                   color: backgroundStyle.color,
                                 }}>
                                 {moment(
-                                  currentLocation?.weatherData?.daily?.[0]
-                                    ?.sunset * 1000,
+                                  locations?.[currentLocationIndex]?.weatherData
+                                    ?.daily?.[0]?.sunset * 1000,
                                 ).format('hh:mm A')}
                               </Text>
                             </View>
@@ -699,7 +708,11 @@ const Home = ({ navigation }) => {
                               style={{
                                 color: backgroundStyle.color,
                               }}>
-                              {currentLocation?.weatherData?.current?.humidity}%
+                              {
+                                locations?.[currentLocationIndex]?.weatherData
+                                  ?.current?.humidity
+                              }
+                              %
                             </Text>
                             <View style={{ flexDirection: 'row' }}>
                               <Text
@@ -707,12 +720,14 @@ const Home = ({ navigation }) => {
                                   color: backgroundStyle.color,
                                 }}>
                                 {temperatureUnit === 'C'
-                                  ? currentLocation?.weatherData?.current?.feels_like.toFixed(
+                                  ? locations?.[
+                                      currentLocationIndex
+                                    ]?.weatherData?.current?.feels_like.toFixed(
                                       0,
                                     )
                                   : convertTemp(
-                                      currentLocation?.weatherData?.current
-                                        ?.feels_like,
+                                      locations?.[currentLocationIndex]
+                                        ?.weatherData?.current?.feels_like,
                                       'C',
                                       'F',
                                     )}
@@ -729,32 +744,38 @@ const Home = ({ navigation }) => {
                               style={{
                                 color: backgroundStyle.color,
                               }}>
-                              {currentLocation?.weatherData?.current?.clouds}%
+                              {
+                                locations?.[currentLocationIndex]?.weatherData
+                                  ?.current?.clouds
+                              }
+                              %
                             </Text>
                             <Text
                               style={{
                                 color: backgroundStyle.color,
                               }}>
                               {pressureUnit === 'mbar' || pressureUnit === 'hpa'
-                                ? currentLocation?.weatherData?.current
-                                    ?.pressure
+                                ? locations?.[currentLocationIndex]?.weatherData
+                                    ?.current?.pressure
                                 : pressureUnit === 'mmhg'
                                 ? (
-                                    currentLocation?.weatherData?.current
-                                      ?.pressure * 0.750062
+                                    locations?.[currentLocationIndex]
+                                      ?.weatherData?.current?.pressure *
+                                    0.750062
                                   ).toFixed(0)
                                 : pressureUnit === 'inhg'
                                 ? (
-                                    currentLocation?.weatherData?.current
-                                      ?.pressure * 0.02953
+                                    locations?.[currentLocationIndex]
+                                      ?.weatherData?.current?.pressure * 0.02953
                                   ).toFixed(0)
                                 : pressureUnit === 'atm'
                                 ? (
-                                    currentLocation?.weatherData?.current
-                                      ?.pressure * 0.000986923
+                                    locations?.[currentLocationIndex]
+                                      ?.weatherData?.current?.pressure *
+                                    0.000986923
                                   ).toFixed(2)
-                                : currentLocation?.weatherData?.current
-                                    ?.pressure}{' '}
+                                : locations?.[currentLocationIndex]?.weatherData
+                                    ?.current?.pressure}{' '}
                               {pressureUnit}
                             </Text>
                           </View>
@@ -779,20 +800,20 @@ const Home = ({ navigation }) => {
                           <Icon name="leaf" size={22} color="#fff"></Icon>
                           <Text style={{ color: '#fff', marginLeft: 10 }}>
                             AQI{' '}
-                            {currentLocation?.airPollution?.list?.[0]?.main
-                              ?.aqi === 1
+                            {locations?.[currentLocationIndex]?.airPollution
+                              ?.list?.[0]?.main?.aqi === 1
                               ? 'Good'
-                              : currentLocation?.airPollution?.list?.[0]?.main
-                                  ?.aqi === 2
+                              : locations?.[currentLocationIndex]?.airPollution
+                                  ?.list?.[0]?.main?.aqi === 2
                               ? 'Fair'
-                              : currentLocation?.airPollution?.list?.[0]?.main
-                                  ?.aqi === 3
+                              : locations?.[currentLocationIndex]?.airPollution
+                                  ?.list?.[0]?.main?.aqi === 3
                               ? 'Moderate'
-                              : currentLocation?.airPollution?.list?.[0]?.main
-                                  ?.aqi === 4
+                              : locations?.[currentLocationIndex]?.airPollution
+                                  ?.list?.[0]?.main?.aqi === 4
                               ? 'Poor'
-                              : currentLocation?.airPollution?.list?.[0]?.main
-                                  ?.aqi === 5
+                              : locations?.[currentLocationIndex]?.airPollution
+                                  ?.list?.[0]?.main?.aqi === 5
                               ? 'Very Poor'
                               : ''}
                           </Text>

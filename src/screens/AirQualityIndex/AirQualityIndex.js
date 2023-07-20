@@ -15,9 +15,8 @@ const AirQualityIndex = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const dispatch = useDispatch();
 
-  const { locations, timeOfUpdate, currentLocationId } = useSelector(
-    state => state.locations,
-  );
+  const { locations, timeOfUpdate, currentLocationId, activeLocationIndex } =
+    useSelector(state => state.locations);
   const [currentLocation, setCurrentLocation] = useState(null);
 
   const backgroundStyle = {
@@ -57,27 +56,37 @@ const AirQualityIndex = () => {
           style={{
             fontSize: 40,
             color:
-              currentLocation?.airPollution?.list?.[0]?.main?.aqi === 1
+              locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+                ?.aqi === 1
                 ? 'green'
-                : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 2
+                : locations?.[activeLocationIndex]?.airPollution?.list?.[0]
+                    ?.main?.aqi === 2
                 ? 'darkgreen'
-                : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 3
+                : locations?.[activeLocationIndex]?.airPollution?.list?.[0]
+                    ?.main?.aqi === 3
                 ? '#1f6350'
-                : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 4
+                : locations?.[activeLocationIndex]?.airPollution?.list?.[0]
+                    ?.main?.aqi === 4
                 ? '#e74648'
-                : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 5
+                : locations?.[activeLocationIndex]?.airPollution?.list?.[0]
+                    ?.main?.aqi === 5
                 ? '#fe0000'
                 : '#1f6350',
           }}>
-          {currentLocation?.airPollution?.list?.[0]?.main?.aqi === 1
+          {locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+            ?.aqi === 1
             ? 'Good'
-            : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 2
+            : locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+                ?.aqi === 2
             ? 'Fair'
-            : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 3
+            : locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+                ?.aqi === 3
             ? 'Moderate'
-            : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 4
+            : locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+                ?.aqi === 4
             ? 'Poor'
-            : currentLocation?.airPollution?.list?.[0]?.main?.aqi === 5
+            : locations?.[activeLocationIndex]?.airPollution?.list?.[0]?.main
+                ?.aqi === 5
             ? 'Very Poor'
             : ''}
         </Text>
@@ -91,49 +100,49 @@ const AirQualityIndex = () => {
           }}>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.[
-                'pm2_5'
-              ]?.toFixed(1)}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.['pm2_5']?.toFixed(1)}
             </Text>
             <Text>PM2.5</Text>
           </View>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.[
-                'pm10'
-              ]?.toFixed(1)}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.['pm10']?.toFixed(1)}
             </Text>
             <Text>PM10</Text>
           </View>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.[
-                'so2'
-              ]?.toFixed(1)}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.['so2']?.toFixed(1)}
             </Text>
             <Text>SO2</Text>
           </View>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.[
-                'no2'
-              ]?.toFixed(1)}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.['no2']?.toFixed(1)}
             </Text>
             <Text>NO2</Text>
           </View>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.[
-                'o3'
-              ]?.toFixed(1)}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.['o3']?.toFixed(1)}
             </Text>
             <Text>O3</Text>
           </View>
           <View>
             <Text>
-              {currentLocation?.airPollution?.list?.[0]?.components?.co?.toFixed(
-                1,
-              )}
+              {locations?.[
+                activeLocationIndex
+              ]?.airPollution?.list?.[0]?.components?.co?.toFixed(1)}
             </Text>
             <Text>CO</Text>
           </View>
