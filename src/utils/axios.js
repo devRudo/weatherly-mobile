@@ -1,7 +1,8 @@
 import axios from 'axios';
+import Config from 'react-native-config';
 
 let baseURL = '';
-baseURL = 'http://192.168.1.5:3000/';
+baseURL = Config.API_URL;
 
 // if(processColor.env.REACT_APP_TARGET_ENV === 'development'){
 //     baseURL = 'http://localhost:3000/'

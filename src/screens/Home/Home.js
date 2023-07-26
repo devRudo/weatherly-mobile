@@ -228,6 +228,7 @@ const Home = ({ navigation }) => {
             <SafeAreaView
               style={{
                 backgroundColor: 'rgba(0,0,0,0.6)',
+                minHeight: Dimensions.get('window').height,
               }}>
               <StatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -468,7 +469,7 @@ const Home = ({ navigation }) => {
                         padding: 10,
                         flexDirection: 'column',
                         // width: Dimensions.get('window').width,
-                        // height: Dimensions.get('window').height * 0.5,
+                        height: Dimensions.get('window').height * 0.5,
                         justifyContent: 'flex-end',
                       }}>
                       <View
@@ -490,7 +491,7 @@ const Home = ({ navigation }) => {
                               backgroundColor: 'rgba(0,0,0,0.7)',
                               borderRadius: 15,
                               padding: 15,
-                              flex: 1,
+                              // flex: 1,
                             }}>
                             <View>
                               <Text
@@ -625,7 +626,7 @@ const Home = ({ navigation }) => {
                               backgroundColor: 'rgba(0,0,0,0.7)',
                               borderRadius: 15,
                               padding: 15,
-                              flex: 1,
+                              // flex: 1,
                             }}>
                             <View>
                               <Text
@@ -786,7 +787,7 @@ const Home = ({ navigation }) => {
                           // height: 300,
                           backgroundColor: 'rgba(0,0,0,0.7)',
                           borderRadius: 15,
-                          padding: 20,
+                          padding: 15,
                           marginTop: 8,
                           flexDirection: 'row',
                           alignItems: 'center',
@@ -842,6 +843,7 @@ const Home = ({ navigation }) => {
                       <View
                         style={{
                           marginTop: 8,
+                          marginBottom: 8,
                           padding: 15,
                           flexDirection: 'row',
                           justifyContent: 'space-between',
