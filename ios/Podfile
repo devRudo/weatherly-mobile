@@ -21,7 +21,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'Weatherly' do
+abstract_target 'WeatherlyCommonPods' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -42,6 +42,12 @@ target 'Weatherly' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
+  
+  target 'Weatherly' do
+  end
+
+  target 'WeatherlyDev' do
+  end
 
   target 'WeatherlyTests' do
     inherit! :complete

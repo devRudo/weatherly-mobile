@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* WeatherlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WeatherlyTests.m */; };
+		09334A9A8CC594A6B71F7946 /* libPods-WeatherlyCommonPods-Weatherly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EC10BA19253B8587C4C695 /* libPods-WeatherlyCommonPods-Weatherly.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		5F92D2371875861971B4ABC7 /* libPods-Weatherly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Weatherly.a */; };
-		7699B88040F8A987B510C191 /* libPods-Weatherly-WeatherlyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Weatherly-WeatherlyTests.a */; };
+		44AF08030393CAA89B2F05F7 /* libPods-WeatherlyCommonPods-WeatherlyDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83424DF480379CB28B199BF1 /* libPods-WeatherlyCommonPods-WeatherlyDev.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8336E19729A928540090A5FE /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18729A928520090A5FE /* MaterialCommunityIcons.ttf */; };
 		8336E19829A928540090A5FE /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18829A928530090A5FE /* AntDesign.ttf */; };
@@ -30,6 +30,27 @@
 		8336E1A429A928540090A5FE /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19429A928530090A5FE /* MaterialIcons.ttf */; };
 		8336E1A529A928540090A5FE /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19529A928540090A5FE /* SimpleLineIcons.ttf */; };
 		8336E1A629A928540090A5FE /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19629A928540090A5FE /* FontAwesome5_Brands.ttf */; };
+		83B068A82A716730001A0E23 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		83B068A92A716730001A0E23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		83B068AD2A716730001A0E23 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18A29A928530090A5FE /* FontAwesome5_Regular.ttf */; };
+		83B068AE2A716730001A0E23 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18F29A928530090A5FE /* FontAwesome.ttf */; };
+		83B068AF2A716730001A0E23 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18929A928530090A5FE /* Ionicons.ttf */; };
+		83B068B02A716730001A0E23 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19629A928540090A5FE /* FontAwesome5_Brands.ttf */; };
+		83B068B12A716730001A0E23 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19229A928530090A5FE /* EvilIcons.ttf */; };
+		83B068B22A716730001A0E23 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19129A928530090A5FE /* FontAwesome5_Solid.ttf */; };
+		83B068B32A716730001A0E23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		83B068B42A716730001A0E23 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18E29A928530090A5FE /* Entypo.ttf */; };
+		83B068B52A716730001A0E23 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18D29A928530090A5FE /* Foundation.ttf */; };
+		83B068B62A716730001A0E23 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19429A928530090A5FE /* MaterialIcons.ttf */; };
+		83B068B72A716730001A0E23 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19529A928540090A5FE /* SimpleLineIcons.ttf */; };
+		83B068B82A716730001A0E23 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18729A928520090A5FE /* MaterialCommunityIcons.ttf */; };
+		83B068B92A716730001A0E23 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18829A928530090A5FE /* AntDesign.ttf */; };
+		83B068BA2A716730001A0E23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		83B068BB2A716730001A0E23 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18C29A928530090A5FE /* Feather.ttf */; };
+		83B068BC2A716730001A0E23 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19329A928530090A5FE /* Fontisto.ttf */; };
+		83B068BD2A716730001A0E23 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E19029A928530090A5FE /* Octicons.ttf */; };
+		83B068BE2A716730001A0E23 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8336E18B29A928530090A5FE /* Zocial.ttf */; };
+		AF3F368A5474DB189333125D /* libPods-WeatherlyCommonPods-WeatherlyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A2BC94ADF25C2795F08DC0 /* libPods-WeatherlyCommonPods-WeatherlyTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,17 +67,20 @@
 		00E356EE1AD99517003FC87E /* WeatherlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WeatherlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherlyTests.m; sourceTree = "<group>"; };
+		07D1E7CE215BEE397DCED740 /* Pods-WeatherlyCommonPods-WeatherlyDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-WeatherlyDev.release.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Weatherly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weatherly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Weatherly/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Weatherly/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Weatherly/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Weatherly/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Weatherly/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Weatherly-WeatherlyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weatherly-WeatherlyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-Weatherly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weatherly.debug.xcconfig"; path = "Target Support Files/Pods-Weatherly/Pods-Weatherly.debug.xcconfig"; sourceTree = "<group>"; };
+		3BA0A98ABC82FDF95774D253 /* Pods-WeatherlyCommonPods-WeatherlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-WeatherlyTests.release.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests.release.xcconfig"; sourceTree = "<group>"; };
+		518BCF38550B65CD8615F2D2 /* Pods-WeatherlyCommonPods-WeatherlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-WeatherlyTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Weatherly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weatherly.release.xcconfig"; path = "Target Support Files/Pods-Weatherly/Pods-Weatherly.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Weatherly-WeatherlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weatherly-WeatherlyTests.debug.xcconfig"; path = "Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-Weatherly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weatherly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64A2BC94ADF25C2795F08DC0 /* libPods-WeatherlyCommonPods-WeatherlyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherlyCommonPods-WeatherlyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A68468C14A12CDEA13458E1 /* Pods-WeatherlyCommonPods-WeatherlyDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-WeatherlyDev.debug.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Weatherly/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8336E18729A928520090A5FE /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		8336E18829A928530090A5FE /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -74,7 +98,13 @@
 		8336E19429A928530090A5FE /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		8336E19529A928540090A5FE /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		8336E19629A928540090A5FE /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		83424DF480379CB28B199BF1 /* libPods-WeatherlyCommonPods-WeatherlyDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherlyCommonPods-WeatherlyDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83B068C52A716730001A0E23 /* WeatherlyDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherlyDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83B068C62A716731001A0E23 /* Weatherly dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Weatherly dev-Info.plist"; path = "/Users/rudovijay/Desktop/Projects/weather-app/weatherly-mobile/ios/Weatherly dev-Info.plist"; sourceTree = "<absolute>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Weatherly-WeatherlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weatherly-WeatherlyTests.release.xcconfig"; path = "Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D00A01315A1B35567542880 /* Pods-WeatherlyCommonPods-Weatherly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-Weatherly.release.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly.release.xcconfig"; sourceTree = "<group>"; };
+		BB6B23FF73686F4D305659E6 /* Pods-WeatherlyCommonPods-Weatherly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherlyCommonPods-Weatherly.debug.xcconfig"; path = "Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly.debug.xcconfig"; sourceTree = "<group>"; };
+		D9EC10BA19253B8587C4C695 /* libPods-WeatherlyCommonPods-Weatherly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherlyCommonPods-Weatherly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-Weatherly-WeatherlyTests.a in Frameworks */,
+				AF3F368A5474DB189333125D /* libPods-WeatherlyCommonPods-WeatherlyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +121,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F92D2371875861971B4ABC7 /* libPods-Weatherly.a in Frameworks */,
+				09334A9A8CC594A6B71F7946 /* libPods-WeatherlyCommonPods-Weatherly.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83B068AA2A716730001A0E23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44AF08030393CAA89B2F05F7 /* libPods-WeatherlyCommonPods-WeatherlyDev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-Weatherly.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Weatherly-WeatherlyTests.a */,
+				D9EC10BA19253B8587C4C695 /* libPods-WeatherlyCommonPods-Weatherly.a */,
+				83424DF480379CB28B199BF1 /* libPods-WeatherlyCommonPods-WeatherlyDev.a */,
+				64A2BC94ADF25C2795F08DC0 /* libPods-WeatherlyCommonPods-WeatherlyTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,6 +217,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				83B068C62A716731001A0E23 /* Weatherly dev-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -189,6 +229,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Weatherly.app */,
 				00E356EE1AD99517003FC87E /* WeatherlyTests.xctest */,
+				83B068C52A716730001A0E23 /* WeatherlyDev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +241,12 @@
 				5709B34CF0A7D63546082F79 /* Pods-Weatherly.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-Weatherly-WeatherlyTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-Weatherly-WeatherlyTests.release.xcconfig */,
+				BB6B23FF73686F4D305659E6 /* Pods-WeatherlyCommonPods-Weatherly.debug.xcconfig */,
+				9D00A01315A1B35567542880 /* Pods-WeatherlyCommonPods-Weatherly.release.xcconfig */,
+				6A68468C14A12CDEA13458E1 /* Pods-WeatherlyCommonPods-WeatherlyDev.debug.xcconfig */,
+				07D1E7CE215BEE397DCED740 /* Pods-WeatherlyCommonPods-WeatherlyDev.release.xcconfig */,
+				518BCF38550B65CD8615F2D2 /* Pods-WeatherlyCommonPods-WeatherlyTests.debug.xcconfig */,
+				3BA0A98ABC82FDF95774D253 /* Pods-WeatherlyCommonPods-WeatherlyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -250,6 +297,28 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Weatherly.app */;
 			productType = "com.apple.product-type.application";
 		};
+		83B068A42A716730001A0E23 /* WeatherlyDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83B068C22A716730001A0E23 /* Build configuration list for PBXNativeTarget "WeatherlyDev" */;
+			buildPhases = (
+				83B068A52A716730001A0E23 /* [CP] Check Pods Manifest.lock */,
+				83B068A62A716730001A0E23 /* Start Packager */,
+				83B068A72A716730001A0E23 /* Sources */,
+				83B068AA2A716730001A0E23 /* Frameworks */,
+				83B068AC2A716730001A0E23 /* Resources */,
+				83B068BF2A716730001A0E23 /* Bundle React Native code and images */,
+				83B068C02A716730001A0E23 /* [CP] Embed Pods Frameworks */,
+				83B068C12A716730001A0E23 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeatherlyDev;
+			productName = Weatherly;
+			productReference = 83B068C52A716730001A0E23 /* WeatherlyDev.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,6 +351,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Weatherly */,
 				00E356ED1AD99517003FC87E /* WeatherlyTests */,
+				83B068A42A716730001A0E23 /* WeatherlyDev */,
 			);
 		};
 /* End PBXProject section */
@@ -319,6 +389,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83B068AC2A716730001A0E23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B068AD2A716730001A0E23 /* FontAwesome5_Regular.ttf in Resources */,
+				83B068AE2A716730001A0E23 /* FontAwesome.ttf in Resources */,
+				83B068AF2A716730001A0E23 /* Ionicons.ttf in Resources */,
+				83B068B02A716730001A0E23 /* FontAwesome5_Brands.ttf in Resources */,
+				83B068B12A716730001A0E23 /* EvilIcons.ttf in Resources */,
+				83B068B22A716730001A0E23 /* FontAwesome5_Solid.ttf in Resources */,
+				83B068B32A716730001A0E23 /* LaunchScreen.storyboard in Resources */,
+				83B068B42A716730001A0E23 /* Entypo.ttf in Resources */,
+				83B068B52A716730001A0E23 /* Foundation.ttf in Resources */,
+				83B068B62A716730001A0E23 /* MaterialIcons.ttf in Resources */,
+				83B068B72A716730001A0E23 /* SimpleLineIcons.ttf in Resources */,
+				83B068B82A716730001A0E23 /* MaterialCommunityIcons.ttf in Resources */,
+				83B068B92A716730001A0E23 /* AntDesign.ttf in Resources */,
+				83B068BA2A716730001A0E23 /* Images.xcassets in Resources */,
+				83B068BB2A716730001A0E23 /* Feather.ttf in Resources */,
+				83B068BC2A716730001A0E23 /* Fontisto.ttf in Resources */,
+				83B068BD2A716730001A0E23 /* Octicons.ttf in Resources */,
+				83B068BE2A716730001A0E23 /* Zocial.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -344,15 +439,106 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83B068A52A716730001A0E23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeatherlyCommonPods-WeatherlyDev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83B068A62A716730001A0E23 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		83B068BF2A716730001A0E23 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		83B068C02A716730001A0E23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83B068C12A716730001A0E23 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyDev/Pods-WeatherlyCommonPods-WeatherlyDev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -370,7 +556,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Weatherly-WeatherlyTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WeatherlyCommonPods-WeatherlyTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,7 +578,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Weatherly-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WeatherlyCommonPods-Weatherly-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -405,15 +591,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -422,15 +608,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weatherly/Pods-Weatherly-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-Weatherly/Pods-WeatherlyCommonPods-Weatherly-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -439,15 +625,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weatherly-WeatherlyTests/Pods-Weatherly-WeatherlyTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherlyCommonPods-WeatherlyTests/Pods-WeatherlyCommonPods-WeatherlyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -489,6 +675,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		83B068A72A716730001A0E23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B068A82A716730001A0E23 /* AppDelegate.mm in Sources */,
+				83B068A92A716730001A0E23 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -502,7 +697,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Weatherly-WeatherlyTests.debug.xcconfig */;
+			baseConfigurationReference = 518BCF38550B65CD8615F2D2 /* Pods-WeatherlyCommonPods-WeatherlyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,7 +725,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Weatherly-WeatherlyTests.release.xcconfig */;
+			baseConfigurationReference = 3BA0A98ABC82FDF95774D253 /* Pods-WeatherlyCommonPods-WeatherlyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -555,14 +750,18 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Weatherly.debug.xcconfig */;
+			baseConfigurationReference = BB6B23FF73686F4D305659E6 /* Pods-WeatherlyCommonPods-Weatherly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC7PF2UVHV;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Weatherly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Weatherly;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,8 +772,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherly;
 				PRODUCT_NAME = Weatherly;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -583,13 +783,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Weatherly.release.xcconfig */;
+			baseConfigurationReference = 9D00A01315A1B35567542880 /* Pods-WeatherlyCommonPods-Weatherly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC7PF2UVHV;
 				INFOPLIST_FILE = Weatherly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Weatherly;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -600,8 +804,67 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherly;
 				PRODUCT_NAME = Weatherly;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83B068C32A716730001A0E23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A68468C14A12CDEA13458E1 /* Pods-WeatherlyCommonPods-WeatherlyDev.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LC7PF2UVHV;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Weatherly dev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherlyDev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		83B068C42A716730001A0E23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07D1E7CE215BEE397DCED740 /* Pods-WeatherlyCommonPods-WeatherlyDev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LC7PF2UVHV;
+				INFOPLIST_FILE = "Weatherly dev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherlyDev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -761,6 +1024,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83B068C22A716730001A0E23 /* Build configuration list for PBXNativeTarget "WeatherlyDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83B068C32A716730001A0E23 /* Debug */,
+				83B068C42A716730001A0E23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
