@@ -36,6 +36,7 @@ import { convertTemp } from '../../utils';
 import { HomePlaceholder } from '../../components';
 import DeviceInfo from 'react-native-device-info';
 import Swiper from 'react-native-swiper';
+import SplashScreen from 'react-native-splash-screen';
 
 const Home = ({ navigation }) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -81,6 +82,7 @@ const Home = ({ navigation }) => {
   }, [activeLocationIndex]);
 
   useEffect(() => {
+    SplashScreen.hide();
     try {
       // console.log('coming');
       Geolocation.getCurrentPosition(
@@ -195,7 +197,6 @@ const Home = ({ navigation }) => {
         );
       })
       .catch(err => console.log(err));
-
     return () => {};
   }, []);
 
