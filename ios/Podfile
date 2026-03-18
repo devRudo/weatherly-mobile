@@ -13,7 +13,7 @@ prepare_react_native_project!
 #   dependencies: {
 #     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
 # ```
-flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
+flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.disabled
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
@@ -63,8 +63,11 @@ abstract_target 'WeatherlyCommonPods' do
     )
     # NOTE: Change IPHONEOS_DEPLOYMENT_TARGET to 12.4.
         installer.pods_project.targets.each do |target|
+          system("sed -i '' 's/std::unary_function<T, std::size_t>//g' Pods/boost/boost/container_hash/hash.hpp")
           target.build_configurations.each do |config|
             config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.4'
+            config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'gnu++17'
+            config.build_settings['CLANG_CXX_LIBRARY'] = 'libc++'
           end
         end
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
