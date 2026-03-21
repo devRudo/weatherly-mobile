@@ -53,6 +53,15 @@ public class MainApplication extends Application implements ReactApplication {
   }
 
   @Override
+  public android.content.Intent registerReceiver(android.content.BroadcastReceiver receiver, android.content.IntentFilter filter) {
+    if (android.os.Build.VERSION.SDK_INT >= 34 && getApplicationInfo().targetSdkVersion >= 34) {
+      return super.registerReceiver(receiver, filter, android.content.Context.RECEIVER_EXPORTED);
+    } else {
+      return super.registerReceiver(receiver, filter);
+    }
+  }
+
+  @Override
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
